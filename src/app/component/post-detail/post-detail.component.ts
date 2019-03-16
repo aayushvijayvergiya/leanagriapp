@@ -18,7 +18,7 @@ export class PostDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiMain: ApiMainService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.editPost = false;
@@ -38,7 +38,7 @@ export class PostDetailComponent implements OnInit {
   }
 
   getComment() {
-    this.apiMain.getPostComment(this.postId).then(response =>{
+    this.apiMain.getPostComment(this.postId).then(response => {
       this.postComment = response;
     }, error => {
       console.log(error);
@@ -46,11 +46,16 @@ export class PostDetailComponent implements OnInit {
   }
 
   updatePost() {
-    this.apiMain.updatePost(this.postId, this.postDetail).then(response => {
-      this.editPost = !this.editPost;
-    }, error => {
-      console.log(error);
-    });
+    if (this.postDetail) {
+      this.apiMain.updatePost(this.postId, this.postDetail).then(response => {
+        this.editPost = !this.editPost;
+        alert('Post Updated Successfully!')
+      }, error => {
+        console.log(error);
+      });
+    } else {
+      alert('Post Details cannot be empty!')
+    }
   }
 
 }
