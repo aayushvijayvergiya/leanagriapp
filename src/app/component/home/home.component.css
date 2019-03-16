@@ -1,0 +1,26 @@
+.post-cont{
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0px;
+    cursor: pointer;
+}
+
+.span-heading{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.title-post {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.body-post{
+    font-size: 14px;
+}
+
+.heading{
+    overflow: auto;
+    margin: 3% 0%;
+}

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="heading">
+      <div class="col-sm-10">
+          <span class="span-heading">List of Posts</span>
+      </div>
+      <button type="button" class="btn btn-primary col-sm-2" (click)="addPost()">Add New</button>
+  </div>
+  
+  <div class="posts-body">
+    <div *ngFor="let post of posts" class="post-cont" (click)="openPost(post.id)">
+      <div class="title-post">{{post.title}}</div>  
+      <div class="body-post">{{post.body}}</div>
+    </div>
+  </div>
+</div>

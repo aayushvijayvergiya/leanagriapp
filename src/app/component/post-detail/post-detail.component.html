@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="post-container" *ngIf="!editPost">
+    <h4 class="post-title">{{postDetail.title}}</h4>
+    <div class="post-body">{{postDetail.body}}</div>
+  </div>
+  <div class="post-container">
+    <div *ngIf="editPost">
+      <div class="form-group">
+        <input type="text" class="form-control post-title" [(ngModel)]="postDetail.title">
+      </div>
+      <div class="form-group">
+        <textarea name="postBody" cols="30" rows="5" class="form-control" [(ngModel)]="postDetail.body"></textarea>
+      </div>
+    </div>
+    <div class="button-div">
+      <button type="button" class="btn btn-primary float-right" *ngIf="editPost" (click)="updatePost()">Update</button>
+      <button type="button" class="btn btn-primary float-right" *ngIf="!editPost"
+        (click)="editPost = !editPost">Edit</button>
+    </div>
+  </div>
+
+
+  <div class="comments-section">
+    <h4>Comments</h4>
+    <div class="comment-cont" *ngFor="let comment of postComment">
+      <div class="name">{{comment.name}}</div>
+      <div class="body">{{comment.body}}</div>
+    </div>
+  </div>
+</div>
